@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Mon Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <style>
+    /* Styles spécifiques à la page contact */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--accent);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      color: white;
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #ff6b4d;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a>
+    <a href="projects.html" class="nav-link"><i class="fas fa-code"></i> Projets</a>
+    <a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="neon-header">
+    <h1>Contactez-moi</h1>
+    <p class="subtitle">Disponible pour des opportunités passionnantes</p>
+  </header>
+
+  <!-- Contenu Principal -->
+  <main class="container">
+    <div class="contact-container">
+      <!-- Informations de Contact -->
+      <section class="contact-info">
+        <h2><i class="fas fa-address-card contact-icon"></i>Coordonnées</h2>
+
+        <div class="contact-card">
+          <i class="fas fa-envelope contact-icon"></i>
+          <div>
+            <h3>Email</h3>
+            <p>juleslorkens@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-phone contact-icon"></i>
+          <div>
+            <h3>Téléphone</h3>
+            <p>+(509) 3441-3042</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <div>
+            <h3>Adresse</h3>
+            <p>15 Rue Jean Leopold Dominique</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+      </section>
+
+      <!-- Formulaire de Contact -->
+      <section class="contact-form">
+        <h2><i class="fas fa-paper-plane contact-icon"></i>Envoyez un message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Envoyer
+          </button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Gestion du formulaire
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Récupération des valeurs
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      // Ici, vous pourriez ajouter un envoi vers un serveur
+      console.log({ name, email, subject, message });
+
+      // Message de confirmation
+      alert(`Merci ${name} ! Votre message a été envoyé.`);
+      this.reset();
+    });
+  </script>
+</body>S
+</html>
